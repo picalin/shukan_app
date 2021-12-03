@@ -9,17 +9,18 @@
       <%= render "devise/shared/error_messages", resource: resource %>
         <div class="form-group">
           <%= 
-            f.email_field :email,
+            # f.email_fieldは使わず、 text_fieldを使用
+            f.text_field :nickname,
             # shukan-login-inputに変更しています
             class: "form-control #{"is-invalid" if alert} shukan-login-input",
             autofocus: "true",
             required: "required",
-            placeholder: "メールアドレス"
+            placeholder: "ニックネーム"
           %>
           
           <% if alert %>
           <span class="shukan-error-message">
-            <strong>メールアドレスが正しくない可能性があります。</strong>
+            <strong>ニックネームが正しくない可能性があります。</strong>
           </span>
           <% end %>
         </div>
