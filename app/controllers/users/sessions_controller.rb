@@ -20,7 +20,7 @@ class Users::SessionsController < Devise::SessionsController
   
   # ログイン後にトップページへ遷移させる。
   def after_sign_in_path_for(user)
-    login_path
+    top_index_path
   end
   
   def after_sign_out_path_for(user)
