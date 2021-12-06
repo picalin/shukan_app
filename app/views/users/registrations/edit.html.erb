@@ -1,3 +1,74 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <h3 class="mt-3 mb-3">会員登録編集</h3>
+
+        <hr>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="form-group row">
+
+          <%= f.label :nickname, "", class: "col-md-5 col-form-label text-md-left" do %>
+            ニックネーム
+            <span class="ml-1 shukan-require-input-label">
+              <span class="shukan-require-input-label-text">必須</span>
+            </span>
+          <% end %>
+
+          <div class="col-md-7">
+            <%=
+              f.text_field :nickname,
+              class: "form-control #{"is-invalid" if resource.errors.messages[:nickname].present? } shukan-login-input",
+              autofocus: "true",
+              required: "",
+              autocomplete: "nickname",
+              placeholder: "習慣　太郎"
+            %>
+
+            <% if resource.errors.messages[:nickname].present? %>
+              <span class="shukan-error-message">
+                <strong><%= resource.errors.full_messages_for(:nickname).first %></strong>
+              </span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :email, "", class: "col-md-5 col-form-label text-md-left" do %>
+          メールアドレス
+            <span class="ml-1 shukan-require-input-label">
+              <span class="shukan-require-input-label-text">必須</span>
+            </span>
+          <% end %>
+
+          <div class="col-md-7">
+            <%=
+              f.email_field :email,
+              class: "form-control #{"is-invalid" if resource.errors.messages[:email].present? } shukan-login-input",
+              autofocus: "true",
+              required: "",
+              autocomplete: "email",
+              placeholder: "メールアドレス"
+            %>
+
+            <% if resource.errors.messages[:email].present? %>
+              <span class="shukan-error-message">
+                <strong><%= resource.errors.full_messages_for(:email).first %></strong>
+              </span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn shukan-submit-button w-100">
+            アップデート
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!----
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -41,3 +112,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+>
