@@ -1,0 +1,2 @@
+module ShukansHelper
+end

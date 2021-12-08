@@ -46,6 +46,9 @@ gem 'jquery-rails'
 # use environment setting
 gem 'dotenv-rails'
 
+# manage sort order
+gem 'acts_as_list', '~> 0.9.19'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

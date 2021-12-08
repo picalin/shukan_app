@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shukans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Position</th>
+      <th>User</th>
+      <th>Done</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shukans.each do |shukan| %>
+      <tr>
+        <td><%= shukan.title %></td>
+        <td><%= shukan.position %></td>
+        <td><%= shukan.user %></td>
+        <td><%= shukan.done %></td>
+        <td><%= link_to 'Show', shukan %></td>
+        <td><%= link_to 'Edit', edit_shukan_path(shukan) %></td>
+        <td><%= link_to 'Destroy', shukan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shukan', new_shukan_path %>

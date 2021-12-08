@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @shukan.title %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @shukan.position %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @shukan.user %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @shukan.done %>
+</p>
+
+<%= link_to 'Edit', edit_shukan_path(@shukan) %> |
+<%= link_to 'Back', shukans_path %>

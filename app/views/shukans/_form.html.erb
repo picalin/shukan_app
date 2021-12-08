@@ -1,0 +1,37 @@
+<%= form_with(model: shukan, local: true) do |form| %>
+  <% if shukan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shukan.errors.count, "error") %> prohibited this shukan from being saved:</h2>
+
+      <ul>
+      <% shukan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :done %>
+    <%= form.check_box :done %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
