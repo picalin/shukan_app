@@ -4,7 +4,7 @@ class CreateShukans < ActiveRecord::Migration[5.2]
       t.string :title
       t.done :position
       t.references :user, foreign_key: true
-      t.boolean :done
+      t.boolean :done, null: false, default: false
 
       t.timestamps
     end
