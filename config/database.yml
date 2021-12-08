@@ -24,6 +24,7 @@ default: &default
   username: picalin
   password: IloveVera
   host: localhost
+  template: template0
 
 development:
   <<: *default
