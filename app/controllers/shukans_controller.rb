@@ -5,7 +5,7 @@ class ShukansController < ApplicationController
   # GET /shukans or /shukans.json
   def index
     #current_userのshukanをすべてとってくる
-    @shukans = current_user.shukan.all
+    @shukans = current_user.shukans.all
   end
 
   # GET /shukans/1 or /shukans/1.json
@@ -14,7 +14,7 @@ class ShukansController < ApplicationController
 
   # GET /shukans/new
   def new
-    @shukan = current_user.shukan.new
+    @shukan = current_user.shukans.new
   end
 
   # GET /shukans/1/edit
@@ -23,7 +23,7 @@ class ShukansController < ApplicationController
 
   # POST /shukans or /shukans.json
   def create
-    @shukan = current_user.shukan.new(shukan_params)
+    @shukan = current_user.shukans.new(shukan_params)
 
     if @shukan.save
       # format.html { redirect_to @shukan, notice: "Shukan was successfully created." }
@@ -57,7 +57,7 @@ class ShukansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shukan
-      @shukan = current_user.shukan.find_by(params[:id])
+      @shukan = current_user.shukans.find_by(params[:id])
       # @goalがないときgoals_urlにリダイレクト
       redirect_to(goals_url, alert: "ERROR!!") if @goal.blank?
     end
