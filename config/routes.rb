@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :shukans
+  resources :shukans do
+    member do
+      get "sort"
+    end
+  end
+  
+
   get 'users/show' => "users#show"
   get 'top/index'
   devise_for :users, :controllers => {
