@@ -1,3 +1,15 @@
+<div class="shukan-title-area px-3">
+  <h1>Shukans</h1>
+  <%= link_to new_shukan_path, title: "New", class: "btn p-0 text-dark", remote: true do %>
+    <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle">新しいShukanを作成</span>
+  <% end %>
+</div>
+<div class="pt-3 p-1 text-nowrap shukan-index-area" id="shukansIndex">
+  <%= render @shukans %>
+</div>
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Shukans</h1>
