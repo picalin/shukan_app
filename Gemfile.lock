@@ -231,7 +231,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  acts_as_list (~> 0.9.19)
+  acts_as_list
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.6.0)
   byebug
