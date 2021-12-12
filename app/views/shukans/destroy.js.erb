@@ -1,0 +1,7 @@
+// modalを閉じる処理
+$("#shukanModal").modal("hide");
+$("body").removeClass("modale-open");
+$(".modal-backdrop").remove();
+
+//画面の書き換え
+$('[data-model_name="shukan"]').filter('[data-id="<%= @shukan.id %>"]').remove();

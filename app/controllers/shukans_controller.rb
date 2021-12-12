@@ -23,6 +23,8 @@ class ShukansController < ApplicationController
 
   # POST /shukans or /shukans.json
   def create
+    # logger.debug(goal_params)
+    # ログインしているユーザーのshukan を@shukanへ詰め込む
     @shukan = current_user.shukans.new(shukan_params)
 
     if @shukan.save
