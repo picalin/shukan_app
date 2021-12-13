@@ -23,7 +23,7 @@ class ShukansController < ApplicationController
 
   # POST /shukans or /shukans.json
   def create
-    # logger.debug(goal_params)
+    # logger.debug(shukan_params)
     # ログインしているユーザーのshukan を@shukanへ詰め込む
     @shukan = current_user.shukans.new(shukan_params)
 
@@ -59,9 +59,10 @@ class ShukansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shukan
-      @shukan = current_user.shukans.find_by(params[:id])
-      # @goalがないときgoals_urlにリダイレクト
-      redirect_to(goals_url, alert: "ERROR!!") if @goal.blank?
+      # find_by(id: params[:id]) ← id: params[:id]と明示的に書く必要がある！
+      @shukan = current_user.shukans.find_by(id: params[:id])
+      # @shukanがないときshukans_urlにリダイレクト
+      redirect_to(shukans_url, alert: "ERROR!!") if @shukan.blank?
     end
 
     # Only allow a list of trusted parameters through.

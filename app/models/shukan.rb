@@ -6,7 +6,9 @@ class Shukan < ApplicationRecord
   validates :title, presence: true
   validates :done, inclusion: { in: [true, false] }
   after_initialize :set_default, if: :new_record?
-
+  
+  default_scope -> { order(created_at: :desc) } 
+  
   private
   
   def set_default
