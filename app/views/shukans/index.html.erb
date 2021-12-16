@@ -1,9 +1,36 @@
-<div class="shukan-title-area px-3">
-  <h1>Shukans</h1>
-  <%= link_to new_shukan_path, title: "New", class: "btn p-0 text-dark", remote: true do %>
-    <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle">新しいShukanを作成</span>
-  <% end %>
-</div>
-<div class="pt-3 p-1 text-nowrap shukan-index-area" id="shukansIndex">
-  <%= render @shukans %>
-</div>
+<div class="container">
+  <div class="row justify-content-center flex-center">
+    <%# <div class="shukan-title-area px-3"> %>
+    <div class="col-md-5">
+      <h3 class="mt-3 mb-3">Shukans</h3>
+       
+      <hr>
+
+      <%= link_to new_shukan_path, title: "New", class: "btn p-0 text-dark", remote: true do %>
+        <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle">新しいShukanを作成</span>
+      <% end %>
+    </div>
+
+    <div class="form-group row">
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <% @shukans.each do |t| %>
+          <li class="list-group-item"><%= t.title %>
+            <div class="text-right position-absolute" style="top: 4px; right: 4px">
+              <div class="btn-group">
+                <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-ellipsis-v align-middle"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right text-middle">
+                  <%= link_to "Edit", edit_shukan_path(t), class: "dropdown-item", remote: true %>
+                  <%= link_to "Delete", t, method: :delete, class: "dropdown-item text-danger", remote: true, data: { confirm: 'Are you sure?' } %>
+                </div>
+              </div>
+            </div>          
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    <div>
+  <div>
+<div>
