@@ -11,26 +11,6 @@
       <% end %>
     </div>
 
-    <div class="form-group row">
-      <div class="card" style="width: 18rem;">
-        <ul class="list-group list-group-flush">
-          <% @shukans.each do |t| %>
-          <li class="list-group-item"><%= t.title %>
-            <div class="text-right position-absolute" style="top: 4px; right: 4px">
-              <div class="btn-group">
-                <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-ellipsis-v align-middle"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right text-middle">
-                  <%= link_to "Edit", edit_shukan_path(t), class: "dropdown-item", remote: true %>
-                  <%= link_to "Delete", t, method: :delete, class: "dropdown-item text-danger", remote: true, data: { confirm: 'Are you sure?' } %>
-                </div>
-              </div>
-            </div>          
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    <div>
+    <%= render @shukans %>
   <div>
 <div>
