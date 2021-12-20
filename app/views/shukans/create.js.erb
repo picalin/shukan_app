@@ -6,7 +6,7 @@ $('.modal-backdrop').remove();
 
 // Rails @status => true 画面の書き換え : false モーダルを再度表示
 <% if @status %>
-$("#shukansIndex").append("<%= j(render @shukan) %>");
+$("#shukansIndex").prepend("<%= j(render @shukan) %>");
 
 <% else %>
 $("#modalArea").html("<%= j(render 'shukans/form', shukan: @shukan) %>")
