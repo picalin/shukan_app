@@ -98,7 +98,6 @@ Rails.application.configure do
     config.action_mailer.default_url_options = {
       protocol: 'https',
       host:ENV["APP_ROOT_URL"],
-      port: 3000
     }
     # mail setting
     config.action_mailer.raise_delivery_errors = true
