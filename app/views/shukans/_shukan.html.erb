@@ -8,16 +8,15 @@
     <ul class="list-group list-group-flush">
       
       <li class="list-group-item">
-        
-        <%= shukan.title %>
-        
+          <%# 完了のときは取り消し線を表示し、そうでない場合はそのまま表示 %>
+          <%= shukan.done ? tag.del(){shukan.title} : (shukan.title) %>
         <div class="text-right position-absolute" style="top: 4px; right: 4px">
           <div class="btn-group">
             <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v align-middle"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right text-middle">
-              <%= form_with(model: shukan, url: [shukan], remote: true) do |form| %>
+              <%= form_with(model: shukan, remote: true) do |form| %>
                 <% if shukan.done %>
                   <%= form.hidden_field :done, value: false, readonly: true %>
                   <%= form.submit "未完了", class: "dropdown-item text-success" %>
