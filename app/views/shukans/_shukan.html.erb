@@ -17,6 +17,16 @@
               <i class="fas fa-ellipsis-v align-middle"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right text-middle">
+              <%= form_with(model: shukan, url: [shukan], remote: true) do |form| %>
+                <% if shukan.done %>
+                  <%= form.hidden_field :done, value: false, readonly: true %>
+                  <%= form.submit "未完了", class: "dropdown-item text-success" %>
+                <% else %>
+                  <%= form.hidden_field :done, value: true, readonly: true %>
+                  <%= form.submit "完了！", class: "dropdown-item text-success" %>
+                <% end %>
+              <% end %>              
+              <div class="dropdown-divider"></div>
               <%= link_to "Edit", edit_shukan_path(shukan), class: "dropdown-item", remote: true %>
               <%= link_to "Delete", shukan, method: :delete, class: "dropdown-item text-danger", remote: true, data: { confirm: 'Are you sure?' } %>
               
