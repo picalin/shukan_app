@@ -1,9 +1,14 @@
+# 使用するモデルファイルを読み込む
+require "#{Rails.root}/app/models/shukan"
 class ResetStatus
-    def reset
-        shukans.done = false
+    def self.reset
+        Shukans.all.each do |shukan|
+            shukan.update(done: false)
+            shukan.save
+        end
     end
 
-    def hello
+    def self.hello
         puts "Hello World!"
     end
 end

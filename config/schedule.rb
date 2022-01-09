@@ -11,6 +11,13 @@ env :PATH, ENV['PATH']
 set :output, "log/cron.log"
 # ジョブの実行環境の指定
 set :environment, :development
+
+# every 1.days, at: '9:00 am' do
+every 1.minutes do
+    # runner 'puts "Hello World!"'
+    runner 'ResetStatus.hello'
+    runner 'ResetStatus.reset'
+end
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
