@@ -13,9 +13,9 @@ set :output, "log/cron.log"
 set :environment, :development
 
 # every 1.days, at: '9:00 am' do
-every 1.minutes do
+every 1.days, at: '23:59 pm' do
     # runner 'puts "Hello World!"'
-    runner 'ResetStatus.hello'
+    # runner 'ResetStatus.hello'
     runner 'ResetStatus.reset'
 end
 #
