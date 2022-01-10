@@ -16,7 +16,7 @@ set :environment, :development
 every 1.minutes do
     # runner 'puts "Hello World!"'
     # runner 'ResetStatus.hello'
-    runner 'ResetStatus.reset'
+    rake 'reset_task:reset_status'
 end
 #
 # every 2.hours do
