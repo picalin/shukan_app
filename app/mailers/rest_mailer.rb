@@ -7,8 +7,7 @@ class RestMailer < ApplicationMailer
   #
   def remind(user)
     @user = user
-    @greeting = "Hi"
 
-    mail to: "#{@user.email}", subject: "Hello, #{@user.nickname}, your today's shukan is reset"
+    mail to: "#{@user.email}", subject: "Your yesterday's shukan is reset"
   end
 end
