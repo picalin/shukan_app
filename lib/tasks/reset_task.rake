@@ -13,7 +13,10 @@ namespace :reset_task do
       users = User.all
   
       users.each do |user|
-        RestMailer.remind(user).deliver
+        # もしshukanの数が1つ以上だったらリセットリマインダーを送る。
+        if user.shukans.count > 0
+           RestMailer.remind(user).deliver
+        end
       end
     end
 end
