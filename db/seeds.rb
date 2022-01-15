@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+ # reset_password_token: Faker::Internet.device_token,
+# confirmation_token: Faker::Internet.device_token,
+# created_at: Faker::Time.between(from: DateTime.now-5, to: DateTime.now-3),
+# updated_at: Faker::Time.between(from: DateTime.now-3, to: DateTime.now),
